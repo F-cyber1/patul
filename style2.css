@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+
+  font-family: sans-serif;
+
+  background: radial-gradient(circle at center, #fff7cc, #ffe08a);
+
+  position: relative;
+}
+
+/* ================= CENTER WRAPPER (ANTI ERROR CENTER) ================= */
+.center-wrapper {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================= VIDEO ================= */
+.video-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  width: 220px;
+  padding: 10px;
+
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  z-index: 5;
+}
+
+.video-box video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.video-box p {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #3a2f00;
+}
+
+/* ================= CARD ================= */
+.card {
+  width: 240px;
+  perspective: 1000px;
+}
+
+.inner {
+  width: 100%;
+  transition: transform 0.9s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card:hover .inner,
+.card.flip .inner {
+  transform: rotateY(180deg) scale(1.05);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+
+  border-radius: 18px;
+
+  backface-visibility: hidden;
+
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  text-align: center;
+  padding: 15px;
+}
+
+/* FOTO AUTO SIZE (NO DISTORTION) */
+.front img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* BACK */
+.back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ================= LOVE + 🍦 ================= */
+.love {
+  position: absolute;
+  font-size: 18px;
+  animation: floatUp 5s linear forwards;
+  pointer-events: none;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-900px) scale(1.6); opacity: 0; }
+}
+
+/* ================= MUSIC BAR ================= */
+.music-bar {
+  position: absolute;
+  bottom: 20px;
+
+  width: 260px;
+  text-align: center;
+
+  color: #3a2f00;
+
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bar {
+  width: 100%;
+  height: 6px;
+
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fill {
+  width: 0%;
+  height: 100%;
+  background: #facc15;
+  transition: width 0.2s linear;
+}
+
+#time {
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+/* ================= ENDING ================= */
+#ending {
+  position: absolute;
+  display: none;
+
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+
+  padding: 20px;
+  border-radius: 12px;
+
+  text-align: center;
+
+  z-index: 20;
+}
